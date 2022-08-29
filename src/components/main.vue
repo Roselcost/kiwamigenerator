@@ -288,7 +288,7 @@ export default {
         this.imageZoom = 0;
         this.vOffset = 0;
         this.hOffset = 0;
-        if (greaterThan16_9(image.width, image.height)) {
+        if (this.greaterThan16_9(image.width, image.height)) {
           image.style.width = '';
           image.style.height = '100%';
         } else {
@@ -299,7 +299,7 @@ export default {
         this.imgHeight = image.height;
         this.initWidth = image.width;
         this.initHeight = image.height;
-        if (greaterThan16_9(this.imgWidth, this.imgHeight)) {
+        if (this.greaterThan16_9(this.imgWidth, this.imgHeight)) {
           this.hOffset = (this.imgWidth - this.viewportWidth) / 2;
         } else {
           this.vOffset = (this.imgHeight - this.viewportHeight) / 2;
@@ -307,7 +307,7 @@ export default {
       };
     },
     setImageCoordinates() {
-      if (greaterThan16_9(this.imgWidth, this.imgHeight)) {
+      if (this.greaterThan16_9(this.imgWidth, this.imgHeight)) {
         return {
           height: (100 + this.imageZoom) + '%',
           top: -this.vOffset + 'px',
