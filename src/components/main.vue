@@ -70,11 +70,11 @@
               <div style="margin:5px;display:inline-block;vertical-align: middle;height:20px">
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
                    data-text="Create your own cool character introduction like the ones in the Yakuza videogame series! #Yakuza #Yakuza0 #YakuzaKiwami #RyuGaGotoku"
-                   data-url="https://kiwamigenerator.herokuapp.com/"
+                   data-url="https://roselcost.github.io/kiwamigenerator/"
                    data-show-count="false">Tweet</a>
               </div>
               <div style="margin:5px;line-height:20px;display:inline-block">
-                <div class="fb-share-button" data-href="https://kiwamigenerator.herokuapp.com/"
+                <div class="fb-share-button" data-href="https://roselcost.github.io/kiwamigenerator/"
                      data-layout="button"
                      data-size="small">Create your own cool introducion like the ones in the Yakuza
                   videogame
@@ -277,6 +277,9 @@ export default {
         this.isNarrow = false;
       }
     },
+    greaterThan16_9(width, height) {
+      return width / height > (16 / 9);
+    },
     getImageDimensions() {
       let image = document.getElementById('editing');
       let img = new Image();
@@ -285,7 +288,7 @@ export default {
         this.imageZoom = 0;
         this.vOffset = 0;
         this.hOffset = 0;
-        if (image.width / image.height > (16 / 9)) {
+        if (greaterThan16_9(image.width, image.height)) {
           image.style.width = '';
           image.style.height = '100%';
         } else {
@@ -296,7 +299,7 @@ export default {
         this.imgHeight = image.height;
         this.initWidth = image.width;
         this.initHeight = image.height;
-        if (this.imgWidth / this.imgHeight > (16 / 9)) {
+        if (greaterThan16_9(this.imgWidth, this.imgHeight)) {
           this.hOffset = (this.imgWidth - this.viewportWidth) / 2;
         } else {
           this.vOffset = (this.imgHeight - this.viewportHeight) / 2;
@@ -304,7 +307,7 @@ export default {
       };
     },
     setImageCoordinates() {
-      if (this.imgWidth / this.imgHeight > (16 / 9)) {
+      if (greaterThan16_9(this.imgWidth, this.imgHeight)) {
         return {
           height: (100 + this.imageZoom) + '%',
           top: -this.vOffset + 'px',
@@ -321,7 +324,6 @@ export default {
       }
     },
     changeLimits() {
-      // Obtener ancho y alto actual de la imagen
       this.imgWidth = Math.round(this.initWidth * (1 + this.imageZoom / 100));
       this.imgHeight = Math.round(this.initHeight * (1 + this.imageZoom / 100));
       if (this.imageZoom === 0) {
