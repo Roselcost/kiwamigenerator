@@ -4,6 +4,26 @@
       <h1 class="invisibleH1">Kiwami introduction generator</h1>
       <img alt="Kiwami Introduction Generator" class="title"
            src="../assets/title.png">
+           <div
+  style="
+    padding: 20px;
+    background: #131313;
+    border: 1px solid goldenrod;
+    margin: 30px;
+  "
+>
+  <a
+    style="
+      color: #b5971a;
+      font-size: 30px;
+      font-family: 'Edo';
+      text-decoration: none;
+    "
+    href="https://roselcost.github.io/shinkiwami"
+    >there is a new version of this app, click here to go!
+  </a>
+</div>
+
       <div class="controlsWrapper">
         <div class="controls">
           <div class="control">
